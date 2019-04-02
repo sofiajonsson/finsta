@@ -15,6 +15,9 @@
     </div>
     <div class="description">
 			<%= render partial: "description", locals: {post: @post} %>
+      <% if current_user.posts.exists?(@post.id) %>
+      <%= link_to 'Edit', edit_post_path(@post), class: 'description' %>
+    <% end %>
     </div>
 		<div class="delete">
   		<% if current_user.posts.exists?(@post.id) %>
